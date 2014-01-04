@@ -1,3 +1,8 @@
+# project files
+.idea
+venv
+
+# Python files
 *.py[cod]
 
 # C extensions
