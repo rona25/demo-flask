@@ -1,12 +1,19 @@
 import datetime
 import logging
+import os
 import pymysql
 
 from flask import Flask, jsonify, request
 
 
 app = Flask(__name__)
-conn = pymysql.connect(host='127.0.0.1', port=3306, user='root', passwd='', db='demo')
+conn = pymysql.connect(
+    host='127.0.0.1',
+    port=3306,
+    user=os.environ['MYSQL_USER'],
+    passwd=os.environ['MYSQL_PWD'],
+    db='demo',
+)
 
 logging.basicConfig(level=logging.INFO)
 log = logging.getLogger('demo')
