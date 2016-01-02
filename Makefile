@@ -18,6 +18,12 @@ run:
 		MYSQL_PWD=$(MYSQL_PWD) \
 		python main.py
 
+uwsgi:
+	. venv/bin/activate ; \
+		MYSQL_USER=$(MYSQL_USER) \
+		MYSQL_PWD=$(MYSQL_PWD) \
+		uwsgi --ini uwsgi.conf
+
 test:
 	. venv/bin/activate ; nosetests -s test_activity.py test_booking.py test_recurring.py test_vendor.py
 
