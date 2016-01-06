@@ -8,11 +8,11 @@ from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 conn = pymysql.connect(
-    host='127.0.0.1',
-    port=3306,
+    host=os.environ['MYSQL_HOST'],
+    port=int(os.environ['MYSQL_PORT']),
     user=os.environ['MYSQL_USER'],
     passwd=os.environ['MYSQL_PWD'],
-    db='demo',
+    db=os.environ['MYSQL_DB'],
 )
 
 logging.basicConfig(level=logging.INFO)
