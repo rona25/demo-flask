@@ -24,6 +24,7 @@ def vendors():
     data = []
     num_total = 0
     try:
+        print 'call to get vendors'
         cur = conn.cursor()
         num_total = cur.execute('SELECT id, name FROM vendor ORDER BY id') or 0
         for row in cur.fetchall():
